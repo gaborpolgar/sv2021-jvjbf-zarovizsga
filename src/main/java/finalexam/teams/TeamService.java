@@ -1,6 +1,7 @@
-package org.training360.finalexam.teams;
+package finalexam.teams;
 
 import finalexam.players.Player;
+import finalexam.players.PlayerNotFoundException;
 import finalexam.players.PlayerRepository;
 import javassist.NotFoundException;
 import org.modelmapper.ModelMapper;
@@ -25,9 +26,9 @@ public class TeamService {
     }
 
     @Transactional
-    public TeamDTO updateWithExistingPlayer(long id, UpdateWithExistingPlayerCommand command) throws NotFoundException {
+    public TeamDTO updateWithExistingPlayer(long id, UpdateWithExistingPlayerCommand command) {
         Team team = repository.findById(id).orElseThrow(() -> new TeamNotFoundException(id));
-        Player player = playerRepository.findById(id).orElseThrow(() -> new NotFoundException("player connot found"));
+        Player player = playerRepository.findById(command.getId()).orElseThrow(() -> new PlayerNotFoundException(command.getId()));
         team.getPlayers().add(player);
         return modelMapper.map(team, TeamDTO.class);
     }

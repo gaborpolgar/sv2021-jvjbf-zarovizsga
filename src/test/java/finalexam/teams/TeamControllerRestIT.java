@@ -3,7 +3,6 @@ package finalexam.teams;
 import finalexam.players.CreatePlayerCommand;
 import finalexam.players.PlayerDTO;
 import finalexam.players.PositionType;
-import org.training360.finalexam.teams.UpdateWithExistingPlayerCommand;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,8 +10,6 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.test.context.jdbc.Sql;
-import org.training360.finalexam.teams.CreateTeamCommand;
-import org.training360.finalexam.teams.TeamDTO;
 import org.zalando.problem.Problem;
 import org.zalando.problem.Status;
 

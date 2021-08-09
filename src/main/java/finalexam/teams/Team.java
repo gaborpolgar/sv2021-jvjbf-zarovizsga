@@ -1,4 +1,4 @@
-package org.training360.finalexam.teams;
+package finalexam.teams;
 
 import finalexam.players.Player;
 import lombok.AllArgsConstructor;
@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -28,4 +29,13 @@ public class Team {
     public Team(String name) {
         this.name = name;
     }
+
+    public void addPlayer(Player player) {
+        if (players == null) {
+            players = new ArrayList<>();
+        }
+        players.add(player);
+        player.setTeam(this);
+    }
+
 }

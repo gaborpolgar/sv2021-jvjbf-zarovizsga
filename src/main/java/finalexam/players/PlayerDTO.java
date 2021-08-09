@@ -1,5 +1,6 @@
 package finalexam.players;
 
+import finalexam.teams.TeamDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +19,7 @@ public class PlayerDTO {
     private LocalDate birthDate;
 
     private PositionType position;
+
+    private TeamDTO team;
 
 }

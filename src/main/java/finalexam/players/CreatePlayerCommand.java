@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -20,4 +19,7 @@ public class CreatePlayerCommand {
 
     private PositionType position;
 
+    public CreatePlayerCommand(String name) {
+        this.name = name;
+    }
 }

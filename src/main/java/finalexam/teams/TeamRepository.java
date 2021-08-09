@@ -1,4 +1,4 @@
-package org.training360.finalexam.teams;
+package finalexam.teams;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,12 +1,13 @@
 package finalexam.players;
 
-import org.training360.finalexam.teams.Team;
+import finalexam.teams.Team;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity
@@ -20,6 +21,7 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     private String name;
 
     @Column(name = "birth_date")
@@ -34,19 +36,23 @@ public class Player {
     @ToString.Exclude
     private Team team;
 
+    public Player(String name) {
+        this.name = name;
+    }
+
     public Player(String name, LocalDate birthDate, PositionType position) {
         this.name = name;
         this.birthDate = birthDate;
         this.position = position;
     }
 
-    @Override
-    public String toString() {
-        return "Player{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                "birthDate=" + birthDate +
-                "position_tpye=" + position +
-                '}';
-    }
+    //    @Override
+//    public String toString() {
+//        return "Player{" +
+//                "id=" + id +
+//                ", name='" + name + '\'' +
+//                "birthDate=" + birthDate +
+//                "position_tpye=" + position +
+//                '}';
+//    }
 }

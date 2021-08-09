@@ -1,6 +1,5 @@
-package org.training360.finalexam.teams;
+package finalexam.teams;
 
-import finalexam.players.Player;
 import finalexam.players.PlayerDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;

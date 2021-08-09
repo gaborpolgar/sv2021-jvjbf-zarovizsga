@@ -16,18 +16,20 @@ public class PlayerController {
         this.service = service;
     }
 
-    public PlayerDTO createPlayer(@Valid @RequestBody CreatePlayerCommand command){
-        return service.createPlayer(command);
-    }
-
     @GetMapping()
     List<PlayerDTO> listPlayers() {
         return service.listPlayers();
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
+    public PlayerDTO createPlayer(@Valid @RequestBody CreatePlayerCommand command){
+        return service.createPlayer(command);
+    }
+
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteItem(@PathVariable("id") long id) {
+    public void deletePlayer(@PathVariable("id") long id) {
         service.deletePlayer(id);
     }
 

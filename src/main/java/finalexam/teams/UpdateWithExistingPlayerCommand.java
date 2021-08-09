@@ -1,4 +1,4 @@
-package org.training360.finalexam.teams;
+package finalexam.teams;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

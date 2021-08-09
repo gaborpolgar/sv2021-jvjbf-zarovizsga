@@ -1,4 +1,4 @@
-package org.training360.finalexam.teams;
+package finalexam.teams;
 
 import javassist.NotFoundException;
 import org.springframework.http.HttpStatus;
@@ -23,8 +23,8 @@ public class TeamController {
         return teamService.createTeam(command);
     }
 
-    @PutMapping("/api/teams/{id}/players")
-    public TeamDTO updateWithExisitingPlayer(@PathVariable("id") long id, @RequestBody UpdateWithExistingPlayerCommand command) throws NotFoundException {
+    @PostMapping("/api/teams/{id}/players")
+    public TeamDTO updateWithExisitingPlayer(@PathVariable("id") long id, @RequestBody UpdateWithExistingPlayerCommand command) {
         return teamService.updateWithExistingPlayer(id, command);
     }
 

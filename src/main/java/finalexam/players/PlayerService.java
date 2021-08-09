@@ -13,8 +13,19 @@ public class PlayerService {
     private PlayerRepository repository;
     private ModelMapper modelMapper;
 
+    public PlayerService(PlayerRepository repository, ModelMapper modelMapper) {
+        this.repository = repository;
+        this.modelMapper = modelMapper;
+    }
+
     public PlayerDTO createPlayer(CreatePlayerCommand command) {
-        Player player = new Player(command.getName(), command.getBirthDate(), command.getPosition());
+        Player player = new Player(command.getName());
+        if (command.getBirthDate() != null) {
+            player.setBirthDate(command.getBirthDate());
+        }
+        if (command.getPosition() != null) {
+            player.setPosition(command.getPosition());
+        }
         repository.save(player);
         return modelMapper.map(player, PlayerDTO.class);
     }
