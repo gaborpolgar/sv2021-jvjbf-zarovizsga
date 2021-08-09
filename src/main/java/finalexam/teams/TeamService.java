@@ -5,6 +5,7 @@ import finalexam.players.PlayerNotFoundException;
 import finalexam.players.PlayerRepository;
 import javassist.NotFoundException;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -17,6 +18,13 @@ public class TeamService {
 
     private TeamRepository repository;
     private ModelMapper modelMapper;
+
+    public TeamService(TeamRepository repository, ModelMapper modelMapper) {
+        this.repository = repository;
+        this.modelMapper = modelMapper;
+    }
+
+    @Autowired
     private PlayerRepository playerRepository;
 
     public TeamDTO createTeam(CreateTeamCommand command) {
@@ -50,13 +58,9 @@ public class TeamService {
                 .collect(Collectors.toList());
     }
 
-    public TeamDTO getTeamById(long id) {
-        Team team = repository.findById(id).orElseThrow(() -> new TeamNotFoundException(id));
-        return modelMapper.map(team, TeamDTO.class);
-    }
-
-    public void deleteTeam(long id) {
-        repository.deleteById(id);
-    }
+//    public TeamDTO getTeamById(long id) {
+//        Team team = repository.findById(id).orElseThrow(() -> new TeamNotFoundException(id));
+//        return modelMapper.map(team, TeamDTO.class);
+//    }
 
 }

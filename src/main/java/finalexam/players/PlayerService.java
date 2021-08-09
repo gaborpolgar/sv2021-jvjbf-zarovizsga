@@ -1,6 +1,7 @@
 package finalexam.players;
 
 
+import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -8,15 +9,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class PlayerService {
 
     private PlayerRepository repository;
     private ModelMapper modelMapper;
-
-    public PlayerService(PlayerRepository repository, ModelMapper modelMapper) {
-        this.repository = repository;
-        this.modelMapper = modelMapper;
-    }
 
     public PlayerDTO createPlayer(CreatePlayerCommand command) {
         Player player = new Player(command.getName());
