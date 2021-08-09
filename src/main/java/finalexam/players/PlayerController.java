@@ -21,6 +21,7 @@ public class PlayerController {
         return service.listPlayers();
     }
 
+    @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public PlayerDTO createPlayer(@Valid @RequestBody CreatePlayerCommand command){
         return service.createPlayer(command);

@@ -9,7 +9,7 @@ public class PlayerNotFoundException extends AbstractThrowableProblem {
 
 
     public PlayerNotFoundException(long id) {
-        super(URI.create("teams/not-found"),
+        super(URI.create("players/not-found"),
                 "Not found",
                 Status.NOT_FOUND,
                 String.format("Team with id %d not found.", id));
